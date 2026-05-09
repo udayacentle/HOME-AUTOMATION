@@ -88,7 +88,7 @@ const SettingsView = (): React.ReactElement => {
 
 	const sendEmail = async () => {
 		logEvent(events.SE_CONTACT_US);
-		const subject = encodeURI('Rocket.Chat Mobile App Support');
+		const subject = encodeURI('Home Automation Mobile App Support');
 		const email = encodeURI('support@rocket.chat');
 		const description = encodeURI(`
 			version: ${getReadableVersion}

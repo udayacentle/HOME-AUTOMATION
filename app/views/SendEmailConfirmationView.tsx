@@ -48,7 +48,7 @@ const SendEmailConfirmationView = () => {
 
 	useEffect(() => {
 		navigation.setOptions({
-			title: 'Rocket.Chat'
+			title: 'Home Automation'
 		});
 		if (route.params?.user) {
 			validate(route.params.user);

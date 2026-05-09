@@ -40,7 +40,7 @@ const ForgotPasswordView = (): React.ReactElement => {
 
 	useLayoutEffect(() => {
 		navigation.setOptions({
-			title: params?.title ?? 'Rocket.Chat'
+			title: params?.title ?? 'Home Automation'
 		});
 	}, [navigation, params?.title]);
 

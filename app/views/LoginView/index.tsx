@@ -22,7 +22,7 @@ const LoginView = () => {
 
 	useLayoutEffect(() => {
 		navigation.setOptions({
-			title: title ?? 'Rocket.Chat',
+			title: title ?? 'Home Automation',
 			headerRight: () => <HeaderButton.Legal testID='login-view-more' navigation={navigation} />
 		});
 	}, [navigation, title]);
