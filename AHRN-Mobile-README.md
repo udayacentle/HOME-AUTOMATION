@@ -27,9 +27,7 @@ Keep Metro running while you use the app.
 2. Failure Forecast  
 3. Bid Comparison  
 4. Job Progress  
-5. Technician Opportunity Feed  
-6. Admin Market  
-7. Super Admin AI Console  
+5. Admin Market  
 
 ## Data
 

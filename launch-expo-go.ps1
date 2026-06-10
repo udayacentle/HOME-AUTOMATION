@@ -1,4 +1,4 @@
-# Launch AHRN in Expo Go — fixes "Something went wrong" / bundle download errors
+# Launch AHRN in Expo Go - Metro port 8081 only
 # KEEP THIS WINDOW OPEN while using the app.
 $ErrorActionPreference = "Stop"
 $sdk = "$env:LOCALAPPDATA\Android\Sdk"
