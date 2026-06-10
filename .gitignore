@@ -1,0 +1,48 @@
+# Dependencies
+node_modules/
+
+# Expo / React Native
+.expo/
+dist/
+web-build/
+*.tsbuildinfo
+.kotlin/
+.metro-health-check*
+
+# Native build outputs (regenerate with expo prebuild)
+**/android/
+**/ios/
+
+# Secrets
+.env
+.env*.local
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.pem
+
+# Large binaries (install locally; see README)
+*.apk
+releases/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# Emulator / debug screenshots (optional local only)
+ahrn-*.png
+expo-go-screenshot.png
+
+# Nested third-party clone (use upstream repo directly)
+Rocket.Chat.ReactNative/
+
+# Cursor / local tooling
+.cursor/
+agent-tools/
+uploads/

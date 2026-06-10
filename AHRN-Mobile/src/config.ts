@@ -1,0 +1,5 @@
+/** Set in .env or shell: EXPO_PUBLIC_API_URL=http://localhost:3000 */
+export const API_BASE_URL =
+  process.env.EXPO_PUBLIC_API_URL?.replace(/\/$/, '') ?? 'http://localhost:3000';
+
+export const DEMO_MODE = !process.env.EXPO_PUBLIC_API_URL;

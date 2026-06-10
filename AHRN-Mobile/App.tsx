@@ -1,0 +1,48 @@
+import { StatusBar } from 'expo-status-bar';
+import { Component, type ReactNode } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import AppNavigator from './src/navigation/AppNavigator';
+import { colors } from './src/theme/tokens';
+
+class ErrorBoundary extends Component<{ children: ReactNode }, { error?: Error }> {
+  state = { error: undefined as Error | undefined };
+
+  static getDerivedStateFromError(error: Error) {
+    return { error };
+  }
+
+  render() {
+    if (this.state.error) {
+      return (
+        <View style={styles.errorWrap}>
+          <Text style={styles.errorTitle}>AHRN could not start</Text>
+          <Text style={styles.errorBody}>{this.state.error.message}</Text>
+        </View>
+      );
+    }
+    return this.props.children;
+  }
+}
+
+export default function App() {
+  return (
+    <SafeAreaProvider>
+      <ErrorBoundary>
+        <AppNavigator />
+      </ErrorBoundary>
+      <StatusBar style="light" />
+    </SafeAreaProvider>
+  );
+}
+
+const styles = StyleSheet.create({
+  errorWrap: {
+    flex: 1,
+    backgroundColor: colors.background,
+    justifyContent: 'center',
+    padding: 24,
+  },
+  errorTitle: { color: colors.danger, fontSize: 20, fontWeight: '700', marginBottom: 12 },
+  errorBody: { color: colors.text, fontSize: 14, lineHeight: 22 },
+});
