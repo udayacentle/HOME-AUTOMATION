@@ -1,16 +1,9 @@
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
-import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import Card from '../components/Card';
-import PrimaryButton from '../components/PrimaryButton';
 import { job } from '../data/ahrnData';
 import { colors, spacing } from '../theme/tokens';
-import type { RootTabParamList } from '../navigation/types';
 
-type Props = {
-  navigation: BottomTabNavigationProp<RootTabParamList, 'Job'>;
-};
-
-export default function JobScreen({ navigation }: Props) {
+export default function JobScreen() {
   return (
     <ScrollView style={styles.scroll} contentContainerStyle={styles.content}>
       <Text style={styles.h1}>Job #{job.id}</Text>
@@ -71,7 +64,6 @@ export default function JobScreen({ navigation }: Props) {
         ))}
       </Card>
 
-      <PrimaryButton label="View Market Dashboard →" onPress={() => navigation.navigate('Admin')} />
     </ScrollView>
   );
 }

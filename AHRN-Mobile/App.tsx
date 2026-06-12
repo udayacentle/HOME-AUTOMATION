@@ -1,8 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
-import { Component, type ReactNode } from 'react';
+import * as SplashScreen from 'expo-splash-screen';
+import { Component, type ReactNode, useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import AppNavigator from './src/navigation/AppNavigator';
+import { AuthProvider } from './src/context/AuthContext';
+import RootNavigator from './src/navigation/RootNavigator';
 import { colors } from './src/theme/tokens';
 
 class ErrorBoundary extends Component<{ children: ReactNode }, { error?: Error }> {
@@ -26,17 +28,29 @@ class ErrorBoundary extends Component<{ children: ReactNode }, { error?: Error }
 }
 
 export default function App() {
+  useEffect(() => {
+    SplashScreen.hideAsync().catch(() => undefined);
+  }, []);
+
   return (
-    <SafeAreaProvider>
-      <ErrorBoundary>
-        <AppNavigator />
-      </ErrorBoundary>
-      <StatusBar style="light" />
-    </SafeAreaProvider>
+    <View style={styles.root}>
+      <SafeAreaProvider>
+        <ErrorBoundary>
+          <AuthProvider>
+            <RootNavigator />
+          </AuthProvider>
+        </ErrorBoundary>
+        <StatusBar style="light" />
+      </SafeAreaProvider>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+    backgroundColor: colors.background,
+  },
   errorWrap: {
     flex: 1,
     backgroundColor: colors.background,

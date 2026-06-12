@@ -1,11 +1,12 @@
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { colors } from '../theme/tokens';
 
 export default function BrandTitle() {
   return (
     <View style={styles.row}>
       <View style={styles.logoWrap}>
-        <Image source={require('../../assets/icon.png')} style={styles.logo} />
+        <View style={styles.logoHouse} />
+        <View style={styles.logoCheck} />
       </View>
       <View>
         <Text style={styles.title}>AHRN</Text>
@@ -26,7 +27,21 @@ const styles = StyleSheet.create({
     borderColor: colors.border,
     backgroundColor: colors.surface,
   },
-  logo: { width: 36, height: 36 },
+  logoHouse: {
+    width: 18,
+    height: 14,
+    backgroundColor: colors.accent,
+    borderRadius: 2,
+    marginTop: 8,
+  },
+  logoCheck: {
+    position: 'absolute',
+    bottom: 6,
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    backgroundColor: colors.success,
+  },
   title: { fontSize: 17, fontWeight: '700', color: colors.text, letterSpacing: 1.2 },
   subtitle: { fontSize: 10, fontWeight: '500', color: colors.textMuted, letterSpacing: 0.3 },
 });

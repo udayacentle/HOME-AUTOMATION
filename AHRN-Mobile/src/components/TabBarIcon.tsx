@@ -242,7 +242,7 @@ function IconSuperAdmin({ color, size }: IconProps) {
   );
 }
 
-const icons: Record<TabName, (props: IconProps) => JSX.Element> = {
+const icons: Partial<Record<TabName, (props: IconProps) => JSX.Element>> = {
   Dashboard: IconHome,
   Forecast: IconForecast,
   Bids: IconBids,
@@ -250,10 +250,18 @@ const icons: Record<TabName, (props: IconProps) => JSX.Element> = {
   Technician: IconTechnician,
   Admin: IconAdmin,
   SuperAdmin: IconSuperAdmin,
+  TechFeed: IconTechnician,
+  TechJob: IconJob,
+  TechComplete: IconBids,
+  AdminOverview: IconAdmin,
+  AdminDisputes: IconBids,
+  AdminCompliance: IconForecast,
+  SuperAI: IconSuperAdmin,
+  SuperGovernance: IconAdmin,
 };
 
 export default function TabBarIcon({ name, color, size }: Props) {
-  const Icon = icons[name];
+  const Icon = icons[name] ?? IconHome;
   return <Icon color={color} size={Math.max(size, 26)} />;
 }
 
