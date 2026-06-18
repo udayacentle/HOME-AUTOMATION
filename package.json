@@ -24,7 +24,7 @@
 		"bugsnag:upload-android": "bugsnag-cli upload react-native-android"
 	},
 	"dependencies": {
-		"@bugsnag/react-native": "8.4.0",
+		"@bugsnag/react-native": "8.9.0",
 		"@expo/vector-icons": "^15.0.3",
 		"@hookform/resolvers": "^2.9.10",
 		"@lodev09/react-native-true-sheet": "~3.7.0",
