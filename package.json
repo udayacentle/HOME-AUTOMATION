@@ -25,7 +25,7 @@
 	},
 	"dependencies": {
 		"@bugsnag/react-native": "8.4.0",
-		"@expo/vector-icons": "^15.0.3",
+		"@expo/vector-icons": "^15.1.1",
 		"@hookform/resolvers": "^2.9.10",
 		"@lodev09/react-native-true-sheet": "~3.7.0",
 		"@nozbe/watermelondb": "^0.28.1-0",
