@@ -78,7 +78,7 @@
 		"expo-web-browser": "~15.0.10",
 		"hoist-non-react-statics": "3.3.2",
 		"i18n-js": "3.9.2",
-		"js-base64": "3.6.1",
+		"js-base64": "3.7.8",
 		"js-sha256": "0.9.0",
 		"jsrsasign": "11.0.0",
 		"lodash": "4.17.21",
