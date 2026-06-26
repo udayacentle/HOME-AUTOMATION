@@ -2,7 +2,23 @@
 
 Home automation and **AHRN** (Asset Health & Reliability Network) mobile development workspace.
 
-Repository: [github.com/udayjalluri04/HOME-AUTOMATION](https://github.com/udayjalluri04/HOME-AUTOMATION)
+## Repositories (mirrored)
+
+Both remotes should carry the same `main` branch:
+
+| Account | URL |
+|---------|-----|
+| **udayacentle** | [github.com/udayacentle/HOME-AUTOMATION](https://github.com/udayacentle/HOME-AUTOMATION) |
+| **udayjalluri04** | [github.com/udayjalluri04/HOME-AUTOMATION](https://github.com/udayjalluri04/HOME-AUTOMATION) |
+
+Push to both after each update:
+
+```powershell
+git push origin main
+git push https://github.com/udayjalluri04/HOME-AUTOMATION.git main
+```
+
+If the second push is denied, sign in as **udayjalluri04** or use GitHub **Import repository** on the empty repo from `udayacentle/HOME-AUTOMATION`.
 
 ## Contents
 
