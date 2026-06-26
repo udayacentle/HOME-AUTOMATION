@@ -1,8 +1,8 @@
-# Launch standalone AHRN release APK - same as releases/AHRN-1.0.0.apk (no Metro).
+# Launch standalone AHRN release APK - same as releases/AHRN-1.1.0.apk (no Metro).
 $ErrorActionPreference = "Continue"
 $sdk = "$env:LOCALAPPDATA\Android\Sdk"
 $adb = "$sdk\platform-tools\adb.exe"
-$apk = "d:\PROJECTS\HOME AUTOMATION\releases\AHRN-1.0.0.apk"
+$apk = "d:\PROJECTS\HOME AUTOMATION\releases\AHRN-1.1.0.apk"
 
 Write-Host "=== AHRN Standalone Launch (no Metro) ==="
 

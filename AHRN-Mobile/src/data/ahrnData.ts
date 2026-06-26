@@ -9,6 +9,130 @@ export const home = {
   alertBody: 'AI predicts failure within 21 days — view forecast for details',
 };
 
+export const homeHealthScore = {
+  score: 87,
+  grade: 'Good',
+  trend: '+3 pts vs last month',
+  summary: 'Overall home reliability is strong. HVAC needs attention this month.',
+  factors: [
+    { label: 'HVAC', score: 62, colorKey: 'warning' as const },
+    { label: 'Plumbing', score: 94, colorKey: 'success' as const },
+    { label: 'Electrical', score: 91, colorKey: 'success' as const },
+    { label: 'Roof', score: 88, colorKey: 'success' as const },
+  ],
+};
+
+export const activeAlerts = [
+  {
+    id: 'ALT-001',
+    title: 'HVAC compressor degradation',
+    body: 'Vibration and thermal readings exceed baseline — failure risk rising.',
+    severity: 'high' as const,
+    system: 'HVAC',
+    detected: '2 hours ago',
+  },
+  {
+    id: 'ALT-002',
+    title: 'Water heater anode wear',
+    body: 'Corrosion index at 78% — schedule inspection within 30 days.',
+    severity: 'medium' as const,
+    system: 'Water Heater',
+    detected: 'Yesterday',
+  },
+  {
+    id: 'ALT-003',
+    title: 'Smart lock firmware update',
+    body: 'Security patch available for front door lock.',
+    severity: 'low' as const,
+    system: 'Security',
+    detected: '3 days ago',
+  },
+];
+
+export const upcomingRisks = [
+  {
+    id: 'RSK-101',
+    system: 'HVAC compressor',
+    riskPct: 72,
+    window: 'Within 21 days',
+    impact: 'Emergency repair ~$2,400',
+    colorKey: 'danger' as const,
+  },
+  {
+    id: 'RSK-102',
+    system: 'Water heater tank',
+    riskPct: 34,
+    window: 'Within 90 days',
+    impact: 'Leak prevention service ~$180',
+    colorKey: 'warning' as const,
+  },
+  {
+    id: 'RSK-103',
+    system: 'Electrical panel',
+    riskPct: 12,
+    window: 'Within 6 months',
+    impact: 'Routine inspection ~$120',
+    colorKey: 'success' as const,
+  },
+];
+
+export const openClaims = [
+  {
+    id: 'CLM-4821',
+    title: 'HVAC compressor repair',
+    status: 'In review' as const,
+    provider: 'CoolAir Pro',
+    filed: 'Jun 10, 2026',
+    amount: '$1,240',
+    nextStep: 'Awaiting technician evidence upload',
+  },
+  {
+    id: 'CLM-4798',
+    title: 'Roof leak mitigation',
+    status: 'Approved' as const,
+    provider: 'Lone Star Roofing',
+    filed: 'May 28, 2026',
+    amount: '$890',
+    nextStep: 'Payout scheduled Jun 18',
+  },
+  {
+    id: 'CLM-4755',
+    title: 'Garage door sensor fault',
+    status: 'Action needed' as const,
+    provider: 'SafeHome Tech',
+    filed: 'May 15, 2026',
+    amount: '$210',
+    nextStep: 'Upload photo evidence to proceed',
+  },
+];
+
+export const scheduledMaintenance = [
+  {
+    id: 'MNT-301',
+    task: 'HVAC seasonal tune-up',
+    date: 'Jun 22, 2026',
+    time: '10:00 AM',
+    provider: 'CoolAir Pro',
+    status: 'Confirmed' as const,
+  },
+  {
+    id: 'MNT-298',
+    task: 'Water heater flush',
+    date: 'Jul 05, 2026',
+    time: '2:00 PM',
+    provider: 'Austin Plumbing Co.',
+    status: 'Pending' as const,
+  },
+  {
+    id: 'MNT-295',
+    task: 'Electrical panel inspection',
+    date: 'Jul 18, 2026',
+    time: '9:30 AM',
+    provider: 'Texas Electric Services',
+    status: 'Confirmed' as const,
+  },
+];
+
 export const systems = [
   { name: 'HVAC', status: 'At Risk', risk: 'Failure in 21 days', colorKey: 'warning' as const },
   { name: 'Water Heater', status: 'Healthy', risk: 'No issues detected', colorKey: 'success' as const },
@@ -36,36 +160,97 @@ export const forecastAi = {
     'Vibration patterns and thermal readings indicate compressor bearing wear. Historical data from 2,400 similar units shows 72% failure probability within 21 days without intervention.',
   model: 'LLaMA Reliability v2.1',
   confidence: '94%',
-  emergencyCost: 2400,
+  emergencyCost: 1800,
+  recommendedActions: [
+    { id: 'act-1', label: 'Schedule Inspection', detail: 'Book a certified HVAC inspection within 7 days' },
+    { id: 'act-2', label: 'Monitor System', detail: 'Enable daily vibration + thermal alerts on HVAC' },
+    { id: 'act-3', label: 'Request Quotes', detail: 'Compare verified repair warranties from local providers' },
+  ],
+  costImpact: {
+    preventiveRepair: 250,
+    potentialFailureCost: 1800,
+    potentialSavings: 1550,
+  },
+};
+
+export type BidWeights = {
+  price: number;
+  eta: number;
+  coverage: number;
+  warranty: number;
+};
+
+export const defaultBidWeights: BidWeights = {
+  price: 30,
+  eta: 25,
+  coverage: 20,
+  warranty: 25,
+};
+
+export const bidScoringGuide = {
+  summary:
+    'Each bid is scored 0–100 using your priority weights. Higher scores mean a better match for what you value most.',
+  factors: [
+    { key: 'price', label: 'Price', description: 'Lower cost scores higher when price weight is increased.' },
+    { key: 'eta', label: 'ETA', description: 'Faster arrival and completion times score higher.' },
+    { key: 'coverage', label: 'Coverage', description: 'Service area reach, parts availability, and technician rating.' },
+    { key: 'warranty', label: 'Warranty', description: 'Longer verified repair warranty periods score higher.' },
+  ],
+};
+
+export const aiBidRecommendation = {
+  provider: 'CoolFix Services',
+  score: 92,
+  summary: 'Best combination of cost, ETA and warranty.',
+  reasons: [
+    'Fastest ETA at 1 hour with 24-month Repair Guarantee',
+    'Highest warranty length in the comparison set',
+    'Strong sensor-verified outcome history (97% success)',
+  ],
 };
 
 export const bids = [
   {
     id: '1',
-    provider: 'CoolAir Pro',
-    outcome: '12 months stability guarantee',
-    pof: '98%',
-    eta: '2 days',
-    price: 120,
-    recommended: true,
+    provider: 'ABC HVAC',
+    price: 220,
+    eta: '2 hrs',
+    etaHours: 2,
+    warranty: '12 Months',
+    warrantyMonths: 12,
+    guaranteeLabel: '12-month Verified Repair Warranty',
+    aiScore: 88,
+    recommended: false,
+    rankFactors: { price: 90, eta: 72, coverage: 86, warranty: 80 },
+    whyRanked: 'Competitive price with solid 12-month warranty coverage.',
   },
   {
     id: '2',
-    provider: 'Texas HVAC Solutions',
-    outcome: '6 months stability guarantee',
-    pof: '91%',
-    eta: '1 day',
-    price: 95,
-    recommended: false,
+    provider: 'CoolFix Services',
+    price: 250,
+    eta: '1 hr',
+    etaHours: 1,
+    warranty: '24 Months',
+    warrantyMonths: 24,
+    guaranteeLabel: '24-month Repair Guarantee',
+    aiScore: 92,
+    recommended: true,
+    rankFactors: { price: 78, eta: 96, coverage: 92, warranty: 98 },
+    whyRanked: 'Best balance of speed, warranty length, and verified repair outcomes.',
   },
   {
     id: '3',
-    provider: 'Reliable Comfort Co.',
-    outcome: '9 months stability guarantee',
-    pof: '94%',
-    eta: '3 days',
-    price: 110,
+    provider: 'FastAir',
+    price: 180,
+    eta: '4 hrs',
+    etaHours: 4,
+    warranty: '6 Months',
+    warrantyMonths: 6,
+    guaranteeLabel: '6-month Verified Repair Warranty',
+    aiScore: 78,
     recommended: false,
+    rankFactors: { price: 98, eta: 55, coverage: 74, warranty: 62 },
+    whyRanked: 'Lowest price, but longer wait time and shorter warranty period.',
   },
 ];
 

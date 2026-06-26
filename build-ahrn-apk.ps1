@@ -2,7 +2,7 @@
 $ErrorActionPreference = "Stop"
 $mobile = "d:\PROJECTS\HOME AUTOMATION\AHRN-Mobile"
 $releases = "d:\PROJECTS\HOME AUTOMATION\releases"
-$version = "1.0.0"
+$version = "1.1.0"
 $apkName = "AHRN-$version.apk"
 
 New-Item -ItemType Directory -Force -Path "D:\gradle", "D:\temp", $releases | Out-Null

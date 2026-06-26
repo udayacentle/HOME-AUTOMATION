@@ -2,7 +2,7 @@
 $ErrorActionPreference = "Continue"
 $sdk = "$env:LOCALAPPDATA\Android\Sdk"
 $adb = "$sdk\platform-tools\adb.exe"
-$apk = "d:\PROJECTS\HOME AUTOMATION\releases\AHRN-1.0.0.apk"
+$apk = "d:\PROJECTS\HOME AUTOMATION\releases\AHRN-1.1.0.apk"
 
 if (-not (Test-Path $apk)) {
   throw "Release APK not found. Run .\build-ahrn-apk.ps1 first."

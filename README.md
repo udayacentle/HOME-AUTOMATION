@@ -2,7 +2,7 @@
 
 Home automation and **AHRN** (Asset Health & Reliability Network) mobile development workspace.
 
-Repository: [github.com/udayacentle/HOME-AUTOMATION](https://github.com/udayacentle/HOME-AUTOMATION)
+Repository: [github.com/udayjalluri04/HOME-AUTOMATION](https://github.com/udayjalluri04/HOME-AUTOMATION)
 
 ## Contents
 
@@ -11,7 +11,7 @@ Repository: [github.com/udayacentle/HOME-AUTOMATION](https://github.com/udayacen
 | [AHRN-Mobile/](AHRN-Mobile/) | Expo SDK 56 React Native app (5-tab AHRN UI) |
 | [build-ahrn-apk.ps1](build-ahrn-apk.ps1) | Build shareable release APK |
 | [install-ahrn-release.ps1](install-ahrn-release.ps1) | Install release APK on device |
-| `releases/AHRN-1.0.0.apk` | Standalone app (no Metro) for sharing |
+| `releases/AHRN-1.1.0.apk` | Standalone app (no Metro) for sharing |
 | [data/](data/) | Demo JSON export (`ahrn-app-data.json`) |
 | [launch-ahrn.ps1](launch-ahrn.ps1) | Start Metro + AHRN on Android emulator |
 | [launch-expo-go.ps1](launch-expo-go.ps1) | Start Metro + Expo Go |
@@ -28,7 +28,7 @@ The release APK has the **full app embedded** (no Metro, no red screen).
 .\install-ahrn-release.ps1     # install on phone/emulator
 ```
 
-Share: `releases/AHRN-1.0.0.apk` (~43 MB, works on real Android phones)
+Share: `releases/AHRN-1.1.0.apk` (~62 MB, works on real Android phones)
 
 ## Dev mode (Metro — for code changes only)
 

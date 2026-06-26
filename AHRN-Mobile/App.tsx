@@ -1,7 +1,8 @@
-import { StatusBar } from 'expo-status-bar';
 import * as SplashScreen from 'expo-splash-screen';
-import { Component, type ReactNode, useEffect } from 'react';
+import { StatusBar } from 'expo-status-bar';
+import { Component, type ReactNode, useCallback, useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { AuthProvider } from './src/context/AuthContext';
 import RootNavigator from './src/navigation/RootNavigator';
@@ -28,12 +29,16 @@ class ErrorBoundary extends Component<{ children: ReactNode }, { error?: Error }
 }
 
 export default function App() {
+  const onLayout = useCallback(() => {
+    SplashScreen.hideAsync().catch(() => {});
+  }, []);
+
   useEffect(() => {
-    SplashScreen.hideAsync().catch(() => undefined);
+    SplashScreen.hideAsync().catch(() => {});
   }, []);
 
   return (
-    <View style={styles.root}>
+    <GestureHandlerRootView style={styles.root} onLayout={onLayout}>
       <SafeAreaProvider>
         <ErrorBoundary>
           <AuthProvider>
@@ -42,7 +47,7 @@ export default function App() {
         </ErrorBoundary>
         <StatusBar style="light" />
       </SafeAreaProvider>
-    </View>
+    </GestureHandlerRootView>
   );
 }
 
